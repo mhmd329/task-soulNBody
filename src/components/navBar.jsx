@@ -7,8 +7,10 @@ const NavBar = ({ onSearch }) => {
   };
 
   return (
-    <nav className="bg-white shadow-md px-6 py-4">
-      <div className="container mx-auto flex flex-col md:flex-row md:items-center md:justify-between">
+    <nav className="bg-white shadow-md px-6 py-4 fixed top-0 left-0 right-0 w-full z-50">
+      <div className="container mx-auto max-w-screen-lg flex flex-col md:flex-row md:items-center md:justify-between">
+        
+      
         <div className="flex items-center gap-3">
           <p className="text-lg font-semibold text-gray-800">د/ أحمد إبراهيم</p>
           <img
@@ -18,19 +20,22 @@ const NavBar = ({ onSearch }) => {
           />
         </div>
 
-        <div className="relative mt-4 md:mt-0">
+        
+        <div className="relative mt-4 md:mt-0 w-full md:w-64">
           <input
             type="text"
             placeholder="ابحث هنا"
-            className="px-4 py-2 pl-10 border border-gray-300 rounded-md bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
             onChange={handleSearchChange}
           />
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" size={20} />
         </div>
 
+        
         <div className="mt-4 md:mt-0">
           <p className="text-gray-700">مرحباً بك في شركة <span className="font-bold text-blue-600">SP</span></p>
         </div>
+
       </div>
     </nav>
   );

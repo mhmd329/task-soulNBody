@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import NavBar from './NavBar';
+import NavBar from './navBar';
 import { Plus, Minus, Edit, Trash2, Printer, Save, X, List, FilePlus } from 'lucide-react';
 
 const BuyingRequest = () => {
