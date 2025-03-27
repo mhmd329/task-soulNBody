@@ -2,49 +2,49 @@ import React, { useState } from 'react';
 import { Plus, Minus, Edit, Trash2, Printer, Save, X } from 'lucide-react';
 
 const Permission = () => {
-    const [permissions, setPermissions] = useState([
-        { 
-          id: 101, 
-          date: "2023-05-15",
-          employee: "محمد أحمد", 
-          from: "08:00", 
-          to: "12:00",
-          reason: "زيارة طبيب",
-          deduction: "120",
-          type: "استئذان", 
-          status: "موافق" 
-        },
-        { 
-          id: 102, 
-          date: "2023-05-16",
-          employee: "أحمد علي", 
-          from: "09:00", 
-          to: "11:00",
-          reason: "ظروف عائلية",
-          deduction: "120",
-          type: "استئذان", 
-          status: "قيد المراجعة" 
-        },
-        { 
-          id: 103, 
-          date: "2023-05-17",
-          employee: "سامي خالد", 
-          from: "10:00", 
-          to: "14:00",
-          reason: "موعد رسمي",
-          deduction: "120",
-          type: "استئذان", 
-          status: "مرفوض" 
-        },
-      ]);
+  const [permissions, setPermissions] = useState([
+    {
+      id: 101,
+      date: "2023-05-15",
+      employee: "محمد أحمد",
+      from: "08:00",
+      to: "12:00",
+      reason: "زيارة طبيب",
+      deduction: "120",
+      type: "استئذان",
+      status: "موافق"
+    },
+    {
+      id: 102,
+      date: "2023-05-16",
+      employee: "أحمد علي",
+      from: "09:00",
+      to: "11:00",
+      reason: "ظروف عائلية",
+      deduction: "120",
+      type: "استئذان",
+      status: "قيد المراجعة"
+    },
+    {
+      id: 103,
+      date: "2023-05-17",
+      employee: "سامي خالد",
+      from: "10:00",
+      to: "14:00",
+      reason: "موعد رسمي",
+      deduction: "120",
+      type: "استئذان",
+      status: "مرفوض"
+    },
+  ]);
 
-  const [newPermission, setNewPermission] = useState({ 
-    employee: '', 
-    type: '', 
-    duration: '1', 
-    status: 'قيد المراجعة' 
+  const [newPermission, setNewPermission] = useState({
+    employee: '',
+    type: '',
+    duration: '1',
+    status: 'قيد المراجعة'
   });
-  
+
   const [editingId, setEditingId] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [searchTerm] = useState('');
@@ -66,27 +66,27 @@ const Permission = () => {
         ...newPermission
       };
       setPermissions([...permissions, permission]);
-      setNewPermission({ 
-        employee: '', 
-        type: '', 
-        duration: '1', 
-        status: 'قيد المراجعة' 
+      setNewPermission({
+        employee: '',
+        type: '',
+        duration: '1',
+        status: 'قيد المراجعة'
       });
       setShowForm(false);
     }
   };
 
- 
+
 
   const handleUpdatePermission = () => {
-    setPermissions(permissions.map(p => 
+    setPermissions(permissions.map(p =>
       p.id === editingId ? { ...newPermission, id: editingId } : p
     ));
-    setNewPermission({ 
-      employee: '', 
-      type: '', 
-      duration: '1', 
-      status: 'قيد المراجعة' 
+    setNewPermission({
+      employee: '',
+      type: '',
+      duration: '1',
+      status: 'قيد المراجعة'
     });
     setEditingId(null);
     setShowForm(false);
@@ -95,11 +95,11 @@ const Permission = () => {
   const toggleForm = () => {
     setShowForm(!showForm);
     setEditingId(null);
-    setNewPermission({ 
-      employee: '', 
-      type: '', 
-      duration: '1', 
-      status: 'قيد المراجعة' 
+    setNewPermission({
+      employee: '',
+      type: '',
+      duration: '1',
+      status: 'قيد المراجعة'
     });
   };
 
@@ -118,22 +118,20 @@ const Permission = () => {
 
       <div className="flex flex-col sm:flex-row gap-2 sm:gap-1 items-left mb-4 justify-between px-2">
         <div className="flex flex-wrap gap-2">
-          <button 
-            className={`px-4 sm:px-6 py-2 rounded-md shadow transition text-sm sm:text-base flex items-center gap-2 ${
-              !showForm 
-                ? 'bg-green-500 text-white' 
-                : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-            }`}
+          <button
+            className={`px-4 cursor-pointer sm:px-6 py-2 rounded-md shadow transition text-sm sm:text-base flex items-center gap-2 ${!showForm
+              ? 'bg-green-500 text-white'
+              : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+              }`}
             onClick={() => setShowForm(false)}
           >
             عرض الاستئذانات
           </button>
-          <button 
-            className={`px-4 sm:px-6 py-2 rounded-md shadow transition text-sm sm:text-base flex items-center gap-2 ${
-              showForm 
-                ? 'bg-green-500 text-white' 
-                : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-            }`}
+          <button
+            className={`px-4 cursor-pointer sm:px-6 py-2 rounded-md shadow transition text-sm sm:text-base flex items-center gap-2 ${showForm
+              ? 'bg-green-500 text-white'
+              : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+              }`}
             onClick={toggleForm}
           >
             <Plus size={18} /> {editingId ? 'تعديل' : 'إضافة'}
@@ -184,14 +182,14 @@ const Permission = () => {
             <div>
               <label className="block text-gray-700 mb-2 text-right">المدة (أيام)</label>
               <div className="flex items-stretch h-10 border rounded-md focus-within:ring-2 focus-within:ring-green-500 overflow-hidden">
-                <button 
+                <button
                   onClick={() => handleDurationChange(parseInt(newPermission.duration || 1) - 1)}
                   className="px-3 hover:bg-gray-100 border-r border-gray-300 flex items-center justify-center bg-gray-50 transition-colors"
                   type="button"
                 >
                   <Minus size={16} className="text-gray-600" />
                 </button>
-                
+
                 <input
                   type="number"
                   name="duration"
@@ -201,8 +199,8 @@ const Permission = () => {
                   min="1"
                   required
                 />
-                
-                <button 
+
+                <button
                   onClick={() => handleDurationChange(parseInt(newPermission.duration || 1) + 1)}
                   className="px-3 hover:bg-gray-100 border-l border-gray-300 flex items-center justify-center bg-gray-50 transition-colors"
                   type="button"
@@ -236,11 +234,10 @@ const Permission = () => {
             </button>
             <button
               onClick={editingId ? handleUpdatePermission : handleAddPermission}
-              className={`px-4 sm:px-6 py-2 rounded-md shadow transition flex items-center justify-center gap-2 ${
-                (!newPermission.employee || !newPermission.type) 
-                  ? 'bg-gray-400 cursor-not-allowed' 
-                  : 'bg-green-500 hover:bg-green-600 text-white'
-              }`}
+              className={`px-4 sm:px-6 py-2 rounded-md shadow transition flex items-center justify-center gap-2 ${(!newPermission.employee || !newPermission.type)
+                ? 'bg-gray-400 cursor-not-allowed'
+                : 'bg-green-500 hover:bg-green-600 text-white'
+                }`}
               disabled={!newPermission.employee || !newPermission.type}
             >
               <Save size={18} /> {editingId ? 'تحديث' : 'حفظ'}
@@ -256,58 +253,56 @@ const Permission = () => {
           </div>
         ) : (
           <div className="shadow-md rounded-lg overflow-hidden">
-           <table className="min-w-full bg-white">
-            <thead>
-  <tr className="bg-green-100 text-gray-700">
-     <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">الحالة</th>
-    <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">الاسم</th>
-    <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">من</th>
-    <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">إلى</th>
-    <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">السبب</th>
-    <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">الخصم</th>
-    <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">التاريخ</th>
- 
-  </tr>
-</thead>
-<tbody>
-  {filteredPermissions.map((permission, index) => (
-    <tr
-      key={`${permission.id}-${index}`}
-      className={`text-center border-b ${
-        index % 2 === 0 ? 'bg-gray-50' : 'bg-green-50'
-      }`}
-    >
-         <td className="py-3 px-2 sm:px-4 text-sm sm:text-base">
-        <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-          permission.status === 'موافق' ? 'bg-green-100 text-green-800' :
-          permission.status === 'مرفوض' ? 'bg-red-100 text-red-800' :
-          'bg-yellow-100 text-yellow-800'
-        }`}>
-          {permission.status}
-        </span>
-      </td>
-     
-      <td className="py-3 px-2 sm:px-4 text-sm sm:text-base font-medium text-gray-800">
-        {permission.employee}
-      </td>
-      <td className="py-3 px-2 sm:px-4 text-sm sm:text-base">
-        {permission.from}
-      </td>
-      <td className="py-3 px-2 sm:px-4 text-sm sm:text-base">
-        {permission.to}
-      </td>
-      <td className="py-3 px-2 sm:px-4 text-sm sm:text-base">
-        {permission.reason}
-      </td>
-      <td className="py-3 px-2 sm:px-4 text-sm sm:text-base">
-        {permission.deduction}
-      </td>
-      <td className="py-3 px-2 sm:px-4 text-sm sm:text-base">
-        {new Date(permission.date).toLocaleDateString('ar-EG')}
-      </td>
-    </tr>
-  ))}
-</tbody>
+            <table className="min-w-full bg-white">
+              <thead>
+                <tr className="bg-green-100 text-gray-700">
+                  <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">الحالة</th>
+                  <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">الاسم</th>
+                  <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">من</th>
+                  <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">إلى</th>
+                  <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">السبب</th>
+                  <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">الخصم</th>
+                  <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">التاريخ</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                {filteredPermissions.map((permission, index) => (
+                  <tr
+                    key={`${permission.id}-${index}`}
+                    className={`text-center border-b ${index % 2 === 0 ? 'bg-gray-50' : 'bg-green-50'
+                      }`}
+                  >
+                    <td className="py-3 px-2 sm:px-4 text-sm sm:text-base">
+                      <span className={`px-4 py-2 rounded-full text-sm font-medium ${permission.status === 'موافق' ? 'bg-green-100 text-green-800 px-15' :
+                        permission.status === 'مرفوض' ? 'bg-red-100 text-red-800 px-15' :
+                          'bg-yellow-100 text-yellow-800 px-10'
+                        }`} style={{ display: 'inline-block', minWidth: '80px', textAlign: 'center' }}>
+                        {permission.status}
+                      </span>
+                    </td>
+
+                    <td className="py-3 px-2 sm:px-4 text-sm sm:text-base font-medium text-gray-800">
+                      {permission.employee}
+                    </td>
+                    <td className="py-3 px-2 sm:px-4 text-sm sm:text-base">
+                      {permission.from}
+                    </td>
+                    <td className="py-3 px-2 sm:px-4 text-sm sm:text-base">
+                      {permission.to}
+                    </td>
+                    <td className="py-3 px-2 sm:px-4 text-sm sm:text-base">
+                      {permission.reason}
+                    </td>
+                    <td className="py-3 px-2 sm:px-4 text-sm sm:text-base">
+                      {permission.deduction}
+                    </td>
+                    <td className="py-3 px-2 sm:px-4 text-sm sm:text-base">
+                      {new Date(permission.date).toLocaleDateString('ar-EG')}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
             </table>
           </div>
         )}

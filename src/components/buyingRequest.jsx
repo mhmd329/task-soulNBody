@@ -109,18 +109,18 @@ const BuyingRequest = () => {
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-1 items-left mb-4 justify-between px-2">
           <div className="flex flex-wrap gap-2">
             <button
-              className={`px-4 sm:px-6 py-2 rounded-md shadow transition text-sm sm:text-base flex items-center gap-2 ${!showForm
-                  ? 'bg-green-500 text-white'
-                  : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+              className={`px-4 cursor-pointer sm:px-6 py-2 rounded-md shadow transition text-sm sm:text-base flex items-center gap-2 ${!showForm
+                ? 'bg-green-500 text-white'
+                : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
                 }`}
               onClick={() => setShowForm(false)}
             >
               <List size={18} /> عرض الطلبات
             </button>
             <button
-              className={`px-4 sm:px-6 py-2 rounded-md shadow transition text-sm sm:text-base flex items-center gap-2 ${showForm
-                  ? 'bg-green-500 text-white'
-                  : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+              className={`px-4 cursor-pointer sm:px-6 py-2 rounded-md shadow transition text-sm sm:text-base flex items-center gap-2 ${showForm
+                ? 'bg-green-500 text-white'
+                : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
                 }`}
               onClick={toggleForm}
             >
@@ -143,8 +143,8 @@ const BuyingRequest = () => {
               <button
                 onClick={editingId ? handleUpdateOrder : handleAddOrder}
                 className={`w-full sm:w-24 h-12 rounded-md shadow transition flex items-center justify-center gap-2 ${(!newOrder.name || !newOrder.quantity)
-                    ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-green-500 hover:bg-green-600 text-white'
+                  ? 'bg-gray-400 cursor-not-allowed'
+                  : 'bg-green-500 hover:bg-green-600 text-white'
                   }`}
                 disabled={!newOrder.name || !newOrder.quantity}
               >
@@ -163,16 +163,15 @@ const BuyingRequest = () => {
                   required
                 />
               </div>
-
               <div className="w-full sm:w-1/3">
                 <label className="block text-gray-700 mb-2 text-right">الكمية</label>
-                <div className="flex items-stretch h-10 border rounded-md focus-within:ring-2 focus-within:ring-green-500 overflow-hidden">
+                <div className="flex h-10 border rounded-md focus-within:ring-2 focus-within:ring-green-500 overflow-hidden">
                   <button
                     onClick={() => handleQuantityChange(Math.max(1, parseInt(newOrder.quantity || 1) - 1))}
-                    className="px-3 hover:bg-gray-100 border-r border-gray-300 flex items-center justify-center bg-gray-50 transition-colors"
+                    className="px-3 hover:bg-gray-100 border-l border-gray-300 flex items-center justify-center bg-green-100 transition-colors order-first"
                     type="button"
                   >
-                    <Minus size={16} className="text-gray-600" />
+                    <Minus size={16} className="text-green-600" />
                   </button>
 
                   <input
@@ -180,17 +179,17 @@ const BuyingRequest = () => {
                     name="quantity"
                     value={newOrder.quantity}
                     onChange={(e) => handleQuantityChange(e.target.value)}
-                    className="flex-1 px-3 py-2 outline-none text-center font-medium"
+                    className="flex-1 px-3 py-2 outline-none text-center font-medium w-full"
                     min="1"
                     required
                   />
 
                   <button
                     onClick={() => handleQuantityChange(parseInt(newOrder.quantity || 1) + 1)}
-                    className="px-3 hover:bg-gray-100 border-l border-gray-300 flex items-center justify-center bg-gray-50 transition-colors"
+                    className="px-3 hover:bg-gray-200 border-r border-gray-300 flex items-center justify-center bg-green-100 transition-colors order-last"
                     type="button"
                   >
-                    <Plus size={16} className="text-gray-600" />
+                    <Plus size={16} className="text-green-600" />
                   </button>
                 </div>
               </div>
