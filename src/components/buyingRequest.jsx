@@ -218,7 +218,7 @@ const BuyingRequest = () => {
             <div className="shadow-md rounded-lg overflow-hidden">
               <table className="min-w-full bg-white">
                 <thead>
-                  <tr className="bg-green-100 text-gray-700">
+                  <tr className="bg-[#D0F3E5] text-gray-700">
                     <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">خيارات</th>
                     <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">الكمية</th>
                     <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">اسم المنتج</th>
@@ -230,7 +230,7 @@ const BuyingRequest = () => {
                   {filteredOrders.map((order, index) => (
                     <tr
                       key={`${order.id}-${index}`}
-                      className={`text-center border-b ${index % 2 === 0 ? 'bg-gray-50' : 'bg-green-50'
+                      className={`text-center border-b ${index % 2 === 0 ? 'bg-gray-50' : 'bg-[#E8F9F2]'
                         }`}
                     >
                       <td className="py-3 px-2 sm:px-4 flex flex-col sm:flex-row justify-center gap-1 sm:gap-2">

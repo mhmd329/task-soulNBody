@@ -14,6 +14,7 @@ const Permission = () => {
       type: "استئذان",
       status: "موافق"
     },
+    
     {
       id: 102,
       date: "2023-05-16",
@@ -35,6 +36,17 @@ const Permission = () => {
       deduction: "120",
       type: "استئذان",
       status: "مرفوض"
+    },
+    {
+      id: 101,
+      date: "2023-05-15",
+      employee: "محمد أحمد",
+      from: "08:00",
+      to: "12:00",
+      reason: "زيارة طبيب",
+      deduction: "120",
+      type: "استئذان",
+      status: "موافق"
     },
   ]);
 
@@ -255,7 +267,7 @@ const Permission = () => {
           <div className="shadow-md rounded-lg overflow-hidden">
             <table className="min-w-full bg-white">
               <thead>
-                <tr className="bg-green-100 text-gray-700">
+                <tr className="bg-[#D0F3E5] text-gray-700">
                   <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">الحالة</th>
                   <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">الاسم</th>
                   <th className="py-3 px-2 sm:px-4 border-b text-sm sm:text-base">من</th>
@@ -270,7 +282,7 @@ const Permission = () => {
                 {filteredPermissions.map((permission, index) => (
                   <tr
                     key={`${permission.id}-${index}`}
-                    className={`text-center border-b ${index % 2 === 0 ? 'bg-gray-50' : 'bg-green-50'
+                    className={`text-center border-b ${index % 2 === 0 ? 'bg-gray-50' : 'bg-[#E8F9F2]'
                       }`}
                   >
                     <td className="py-3 px-2 sm:px-4 text-sm sm:text-base">
